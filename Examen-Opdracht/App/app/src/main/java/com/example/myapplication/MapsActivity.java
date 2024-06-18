@@ -62,7 +62,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        // Add a marker in Sydney and move the camera
+
         LatLng UserPosition = new LatLng(51.884573, 4.494143);
 
         catlist = getCatList();
@@ -73,15 +73,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Add circles at each point
         int index = 0;
-        PolylineOptions lineOptions = new PolylineOptions().width(20).color(Color.BLACK).zIndex(1);
+        PolylineOptions lineOptions = new PolylineOptions().width(20).color(Color.DKGRAY).zIndex(1);
         for (CatData data : catlist.cats) {
             lineOptions.add(data.position);
 
             CircleOptions circleOptions = new CircleOptions()
                     .center(data.position)
                     .radius(2.5) // Radius in meters
-                    .strokeColor(Color.BLACK)
-                    .fillColor(Color.BLACK)
+                    .strokeColor(Color.DKGRAY)
+                    .fillColor(Color.DKGRAY)
                     .clickable(true)
                     .zIndex(2); // Make the circle clickable
             Circle circle = mMap.addCircle(circleOptions);
