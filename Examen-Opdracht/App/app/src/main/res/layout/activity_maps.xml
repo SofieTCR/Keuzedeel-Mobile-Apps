@@ -20,6 +20,7 @@
         android:layout_alignParentEnd="true"
         android:layout_margin="16dp"
         android:src="@drawable/image_4"
+        android:onClick="logoutButton"
         />
 
     <RelativeLayout
