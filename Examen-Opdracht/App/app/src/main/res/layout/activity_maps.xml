@@ -1,9 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/map"
-    android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MapsActivity" />
+    tools:context=".MapsActivity">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/circular_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:src="@drawable/image_4"
+        />
+
+    <RelativeLayout
+        android:id="@+id/rounded_rectangle"
+        android:layout_width="387dp"
+        android:layout_height="149dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/rounded_rectangle"
+        android:visibility="invisible">
+
+        <TextView
+            android:id="@+id/Window"
+            android:layout_width="233dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginEnd="125dp"
+            android:layout_marginBottom="92dp"
+            android:text="{name} {time} {date}"
+            android:textColor="@android:color/black"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/LatitudeWindow"
+            android:layout_width="233dp"
+            android:layout_height="30dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="67dp"
+            android:layout_marginEnd="125dp"
+            android:layout_marginBottom="52dp"
+            android:text="Lat: 0.0000000"
+            android:textColor="@android:color/black"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/LongitudeWindow"
+            android:layout_width="234dp"
+            android:layout_height="34dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="29dp"
+            android:layout_marginTop="99dp"
+            android:layout_marginEnd="124dp"
+            android:layout_marginBottom="16dp"
+            android:text="Lng: 0.0000000"
+            android:textColor="@android:color/black"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/pfp"
+            android:layout_width="78dp"
+            android:layout_height="76dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="279dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="55dp"
+            android:src="@drawable/image_4" />
+
+        <TextView
+            android:id="@+id/kmWindow"
+            android:layout_width="89dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="104dp"
+            android:layout_marginEnd="21dp"
+            android:text="0.0Km"
+            android:textColor="@android:color/black"
+            android:textSize="24sp" />
+    </RelativeLayout>
+</RelativeLayout>
