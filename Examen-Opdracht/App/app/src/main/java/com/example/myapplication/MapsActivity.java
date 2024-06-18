@@ -11,6 +11,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -19,6 +20,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.Cap;
+import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
@@ -33,6 +35,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
+    private Circle lastClickedCircle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,10 +69,54 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         catPositions.add(new LatLng(51.884248, 4.494434));
         catPositions.add(new LatLng(51.883873, 4.494298));
         catPositions.add(new LatLng(51.884171, 4.493095));
-//        catPositions.add(new LatLng(51.884906, 4.492840));
+
         MarkerOptions userMarker = new MarkerOptions().position(UserPosition).title("U");
         mMap.addMarker(userMarker);
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(UserPosition, 18));
-        mMap.addPolyline(new PolylineOptions().addAll(catPositions).width(20).color(Color.BLACK));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(UserPosition, 17));
+        mMap.addPolyline(new PolylineOptions().addAll(catPositions).width(20).color(Color.BLACK).zIndex(1));
+
+        // Add circles at each point
+        for (LatLng position : catPositions) {
+            CircleOptions circleOptions = new CircleOptions()
+                    .center(position)
+                    .radius(2.5) // Radius in meters
+                    .strokeColor(Color.BLACK)
+                    .fillColor(Color.BLACK)
+                    .clickable(true)
+                    .zIndex(2); // Make the circle clickable
+            Circle circle = mMap.addCircle(circleOptions);
+
+            // Store some tag or metadata if necessary
+            circle.setTag(position);
+        }
+
+        // Set a click listener for the circles
+        mMap.setOnCircleClickListener(new GoogleMap.OnCircleClickListener() {
+            @Override
+            public void onCircleClick(Circle circle) {
+                // Call your method here
+                onCircleClicked(circle);
+            }
+        });
+    }
+
+    // Your method to handle the circle click
+    public void onCircleClicked(Circle circle) {
+        // Change the color of the last clicked circle back to the default color
+        if (lastClickedCircle != null) {
+            lastClickedCircle.setFillColor(Color.BLACK); // Change this to your default color
+            lastClickedCircle.setStrokeColor(Color.BLACK); // Change this to your default color
+        }
+
+        // Change the color of the current clicked circle to red
+        circle.setFillColor(Color.RED);
+        circle.setStrokeColor(Color.RED);
+
+        // Update the last clicked circle to the current one
+        lastClickedCircle = circle;
+
+        LatLng position = (LatLng) circle.getTag();
+        Log.d("CircleClicked", "Circle clicked at: " + position);
+        // Add any additional logic here
     }
 }
