@@ -113,24 +113,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 "10:08 18-06-2024"));
         catList.AddCatData(new CatData(new LatLng(51.884171, 4.493095),
                 "10:13 18-06-2024"));
-//        catList.AddCatData(new CatData(new LatLng(51.884573, 4.494143),
-//                           new Timestamp(2024, 06, 18, 10, 01, 00, 000)));
-//        catList.AddCatData(new CatData(new LatLng(51.884573, 4.494143),
-//                           new Timestamp(2024, 06, 18, 10, 01, 00, 000)));
-//        catList.AddCatData(new CatData(new LatLng(51.884573, 4.494143),
-//                           new Timestamp(2024, 06, 18, 10, 01, 00, 000)));
-//        catList.AddCatData(new CatData(new LatLng(51.884573, 4.494143),
-//                           new Timestamp(2024, 06, 18, 10, 01, 00, 000)));
-//        catList.AddCatData(new CatData(new LatLng(51.884573, 4.494143),
-//                           new Timestamp(2024, 06, 18, 10, 01, 00, 000)));
-//        catList.AddCatData(new CatData(new LatLng(51.884573, 4.494143),
-//                           new Timestamp(2024, 06, 18, 10, 01, 00, 000)));
-//        catList.AddCatData(new CatData(new LatLng(51.884573, 4.494143),
-//                           new Timestamp(2024, 06, 18, 10, 01, 00, 000)));
-//        catList.AddCatData(new CatData(new LatLng(51.884573, 4.494143),
-//                           new Timestamp(2024, 06, 18, 10, 01, 00, 000)));
-//        catList.AddCatData(new CatData(new LatLng(51.884573, 4.494143),
-//                           new Timestamp(2024, 06, 18, 10, 01, 00, 000)));
+        catList.AddCatData(new CatData(new LatLng(51.884091, 4.492711),
+                "10:15 18-06-2024"));
+        catList.AddCatData(new CatData(new LatLng(51.883517, 4.493090),
+                "10:17 18-06-2024"));
+        catList.AddCatData(new CatData(new LatLng(51.883320, 4.494497),
+                "10:26 18-06-2024"));
+        catList.AddCatData(new CatData(new LatLng(51.883684, 4.493495),
+                "10:30 18-06-2024"));
+        catList.AddCatData(new CatData(new LatLng(51.884377, 4.492529),
+                "10:37 18-06-2024"));
+        catList.AddCatData(new CatData(new LatLng(51.884408, 4.492870),
+                "10:42 18-06-2024"));
+        catList.AddCatData(new CatData(new LatLng(51.884861, 4.492893),
+                "10:45 18-06-2024"));
+        catList.AddCatData(new CatData(new LatLng(51.885485, 4.493907),
+                "10:48 18-06-2024"));
+        catList.AddCatData(new CatData(new LatLng(51.885624, 4.495075),
+                "10:56 18-06-2024"));
         return catList;
     }
 
